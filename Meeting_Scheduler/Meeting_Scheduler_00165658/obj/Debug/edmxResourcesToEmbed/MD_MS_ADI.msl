@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB_MS_ADIModelStoreContainer" CdmEntityContainer="DB_MS_ADIEntities">
+    <EntitySetMapping Name="Agenda">
+      <EntityTypeMapping TypeName="DB_MS_ADIModel.Agendum">
+        <MappingFragment StoreEntitySet="Agenda">
+          <ScalarProperty Name="ag_Id" ColumnName="ag_Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Calenders">
+      <EntityTypeMapping TypeName="DB_MS_ADIModel.Calender">
+        <MappingFragment StoreEntitySet="Calender">
+          <ScalarProperty Name="c_Id" ColumnName="c_Id" />
+          <ScalarProperty Name="cDate" ColumnName="cDate" />
+          <ScalarProperty Name="wDay" ColumnName="wDay" />
+          <ScalarProperty Name="wNo" ColumnName="wNo" />
+          <ScalarProperty Name="wHour" ColumnName="wHour" />
+          <ScalarProperty Name="isHoliday" ColumnName="isHoliday" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MeetAttendies">
+      <EntityTypeMapping TypeName="DB_MS_ADIModel.MeetAttendy">
+        <MappingFragment StoreEntitySet="MeetAttendies">
+          <ScalarProperty Name="at_Id" ColumnName="at_Id" />
+          <ScalarProperty Name="u_id" ColumnName="u_id" />
+          <ScalarProperty Name="m_id" ColumnName="m_id" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="R_Time" ColumnName="R_Time" />
+          <ScalarProperty Name="Present" ColumnName="Present" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Meetings">
+      <EntityTypeMapping TypeName="DB_MS_ADIModel.Meeting">
+        <MappingFragment StoreEntitySet="Meeting">
+          <ScalarProperty Name="m_Id" ColumnName="m_Id" />
+          <ScalarProperty Name="mTitle" ColumnName="mTitle" />
+          <ScalarProperty Name="cId" ColumnName="cId" />
+          <ScalarProperty Name="qId" ColumnName="qId" />
+          <ScalarProperty Name="vId" ColumnName="vId" />
+          <ScalarProperty Name="aId" ColumnName="aId" />
+          <ScalarProperty Name="Start_Time" ColumnName="Start_Time" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Organisations">
+      <EntityTypeMapping TypeName="DB_MS_ADIModel.Organisation">
+        <MappingFragment StoreEntitySet="Organisation">
+          <ScalarProperty Name="o_Id" ColumnName="o_Id" />
+          <ScalarProperty Name="oName" ColumnName="oName" />
+          <ScalarProperty Name="oAddress" ColumnName="oAddress" />
+          <ScalarProperty Name="oPhone" ColumnName="oPhone" />
+          <ScalarProperty Name="oEmail" ColumnName="oEmail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Quarams">
+      <EntityTypeMapping TypeName="DB_MS_ADIModel.Quaram">
+        <MappingFragment StoreEntitySet="Quaram">
+          <ScalarProperty Name="q_Id" ColumnName="q_Id" />
+          <ScalarProperty Name="qType" ColumnName="qType" />
+          <ScalarProperty Name="max_Att" ColumnName="max_Att" />
+          <ScalarProperty Name="min_Att" ColumnName="min_Att" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="DB_MS_ADIModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="r_Id" ColumnName="r_Id" />
+          <ScalarProperty Name="Role_Name" ColumnName="Role_Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="urActivities">
+      <EntityTypeMapping TypeName="DB_MS_ADIModel.urActivity">
+        <MappingFragment StoreEntitySet="urActivity">
+          <ScalarProperty Name="a_Id" ColumnName="a_Id" />
+          <ScalarProperty Name="U_Id" ColumnName="U_Id" />
+          <ScalarProperty Name="c_Id" ColumnName="c_Id" />
+          <ScalarProperty Name="a_Title" ColumnName="a_Title" />
+          <ScalarProperty Name="s_Time" ColumnName="s_Time" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="Presence" ColumnName="Presence" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="DB_MS_ADIModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="u_Id" ColumnName="u_Id" />
+          <ScalarProperty Name="uName" ColumnName="uName" />
+          <ScalarProperty Name="Pass" ColumnName="Pass" />
+          <ScalarProperty Name="Job_Title" ColumnName="Job_Title" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Pay_Grade" ColumnName="Pay_Grade" />
+          <ScalarProperty Name="Role_Id" ColumnName="Role_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Venus">
+      <EntityTypeMapping TypeName="DB_MS_ADIModel.Venu">
+        <MappingFragment StoreEntitySet="Venu">
+          <ScalarProperty Name="v_Id" ColumnName="v_Id" />
+          <ScalarProperty Name="vName" ColumnName="vName" />
+          <ScalarProperty Name="vLocation" ColumnName="vLocation" />
+          <ScalarProperty Name="vAddress" ColumnName="vAddress" />
+          <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

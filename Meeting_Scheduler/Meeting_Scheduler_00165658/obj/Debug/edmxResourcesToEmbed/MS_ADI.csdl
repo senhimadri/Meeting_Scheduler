@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MS_00165658Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Agendum">
+    <Key>
+      <PropertyRef Name="ag_Id" />
+    </Key>
+    <Property Name="ag_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Calender">
+    <Key>
+      <PropertyRef Name="c_Id" />
+    </Key>
+    <Property Name="c_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cDate" Type="DateTime" Precision="3" />
+    <Property Name="wDay" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="wNo" Type="Int32" />
+    <Property Name="wHour" Type="Int32" />
+    <Property Name="isHoliday" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="MeetAttendy">
+    <Key>
+      <PropertyRef Name="at_Id" />
+    </Key>
+    <Property Name="at_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="u_id" Type="Int32" />
+    <Property Name="m_id" Type="Int32" />
+    <Property Name="Remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="R_Time" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Meeting">
+    <Key>
+      <PropertyRef Name="m_Id" />
+    </Key>
+    <Property Name="m_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cId" Type="Int32" />
+    <Property Name="qId" Type="Int32" />
+    <Property Name="vId" Type="Int32" />
+    <Property Name="aId" Type="Int32" />
+    <Property Name="Start_Time" Type="Int32" />
+    <Property Name="Duration" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Organisation">
+    <Key>
+      <PropertyRef Name="o_Id" />
+    </Key>
+    <Property Name="o_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="oName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="oAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="oPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="oEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Quaram">
+    <Key>
+      <PropertyRef Name="q_Id" />
+    </Key>
+    <Property Name="q_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="qType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="max_Att" Type="Int32" />
+    <Property Name="min_Att" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="r_Id" />
+    </Key>
+    <Property Name="r_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Role_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="urActivity">
+    <Key>
+      <PropertyRef Name="a_Id" />
+    </Key>
+    <Property Name="a_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="U_Id" Type="Int32" />
+    <Property Name="c_Id" Type="Int32" />
+    <Property Name="a_Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="s_Time" Type="Int32" />
+    <Property Name="Duration" Type="Int32" />
+    <Property Name="Presence" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="u_Id" />
+    </Key>
+    <Property Name="u_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="uName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Job_Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Age" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Pay_Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Role_Id" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Venu">
+    <Key>
+      <PropertyRef Name="v_Id" />
+    </Key>
+    <Property Name="v_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="vName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="vLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="vAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Capacity" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="MS_00165658Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Agenda" EntityType="Self.Agendum" />
+    <EntitySet Name="Calenders" EntityType="Self.Calender" />
+    <EntitySet Name="MeetAttendies" EntityType="Self.MeetAttendy" />
+    <EntitySet Name="Meetings" EntityType="Self.Meeting" />
+    <EntitySet Name="Organisations" EntityType="Self.Organisation" />
+    <EntitySet Name="Quarams" EntityType="Self.Quaram" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="urActivities" EntityType="Self.urActivity" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="Venus" EntityType="Self.Venu" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MS_00165658Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Agenda">
+    <Key>
+      <PropertyRef Name="ag_Id" />
+    </Key>
+    <Property Name="ag_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="50" />
+    <Property Name="Description" Type="varchar" MaxLength="50" />
+    <Property Name="Type" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Calender">
+    <Key>
+      <PropertyRef Name="c_Id" />
+    </Key>
+    <Property Name="c_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cDate" Type="datetime" />
+    <Property Name="wDay" Type="varchar" MaxLength="50" />
+    <Property Name="wNo" Type="int" />
+    <Property Name="wHour" Type="int" />
+    <Property Name="isHoliday" Type="bit" />
+  </EntityType>
+  <EntityType Name="MeetAttendies">
+    <Key>
+      <PropertyRef Name="at_Id" />
+    </Key>
+    <Property Name="at_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="u_id" Type="int" />
+    <Property Name="m_id" Type="int" />
+    <Property Name="Remarks" Type="varchar" MaxLength="50" />
+    <Property Name="R_Time" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Meeting">
+    <Key>
+      <PropertyRef Name="m_Id" />
+    </Key>
+    <Property Name="m_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mTitle" Type="varchar" MaxLength="50" />
+    <Property Name="cId" Type="int" />
+    <Property Name="qId" Type="int" />
+    <Property Name="vId" Type="int" />
+    <Property Name="aId" Type="int" />
+    <Property Name="Start_Time" Type="int" />
+    <Property Name="Duration" Type="int" />
+  </EntityType>
+  <EntityType Name="Organisation">
+    <Key>
+      <PropertyRef Name="o_Id" />
+    </Key>
+    <Property Name="o_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="oName" Type="varchar" MaxLength="50" />
+    <Property Name="oAddress" Type="varchar" MaxLength="50" />
+    <Property Name="oPhone" Type="varchar" MaxLength="50" />
+    <Property Name="oEmail" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Quaram">
+    <Key>
+      <PropertyRef Name="q_Id" />
+    </Key>
+    <Property Name="q_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="qType" Type="varchar" MaxLength="50" />
+    <Property Name="max_Att" Type="int" />
+    <Property Name="min_Att" Type="int" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="r_Id" />
+    </Key>
+    <Property Name="r_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Role_Name" Type="varchar" MaxLength="50" />
+    <Property Name="Description" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="urActivity">
+    <Key>
+      <PropertyRef Name="a_Id" />
+    </Key>
+    <Property Name="a_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="U_Id" Type="int" />
+    <Property Name="c_Id" Type="int" />
+    <Property Name="a_Title" Type="varchar" MaxLength="50" />
+    <Property Name="s_Time" Type="int" />
+    <Property Name="Duration" Type="int" />
+    <Property Name="Presence" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="u_Id" />
+    </Key>
+    <Property Name="u_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="uName" Type="varchar" MaxLength="50" />
+    <Property Name="Pass" Type="varchar" MaxLength="50" />
+    <Property Name="Job_Title" Type="varchar" MaxLength="50" />
+    <Property Name="Age" Type="varchar" MaxLength="50" />
+    <Property Name="Gender" Type="varchar" MaxLength="50" />
+    <Property Name="Pay_Grade" Type="varchar" MaxLength="50" />
+    <Property Name="Role_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="Venu">
+    <Key>
+      <PropertyRef Name="v_Id" />
+    </Key>
+    <Property Name="v_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="vName" Type="varchar" MaxLength="50" />
+    <Property Name="vLocation" Type="varchar" MaxLength="50" />
+    <Property Name="vAddress" Type="varchar" MaxLength="50" />
+    <Property Name="Capacity" Type="int" />
+  </EntityType>
+  <EntityContainer Name="MS_00165658ModelStoreContainer">
+    <EntitySet Name="Agenda" EntityType="Self.Agenda" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Calender" EntityType="Self.Calender" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MeetAttendies" EntityType="Self.MeetAttendies" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Meeting" EntityType="Self.Meeting" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Organisation" EntityType="Self.Organisation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Quaram" EntityType="Self.Quaram" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="urActivity" EntityType="Self.urActivity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Venu" EntityType="Self.Venu" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,394 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DB_MS_ADIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Agenda">
+          <Key>
+            <PropertyRef Name="ag_Id" />
+          </Key>
+          <Property Name="ag_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+          <Property Name="Type" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Calender">
+          <Key>
+            <PropertyRef Name="c_Id" />
+          </Key>
+          <Property Name="c_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cDate" Type="date" />
+          <Property Name="wDay" Type="varchar" MaxLength="50" />
+          <Property Name="wNo" Type="int" />
+          <Property Name="wHour" Type="int" />
+          <Property Name="isHoliday" Type="bit" />
+        </EntityType>
+        <EntityType Name="MeetAttendies">
+          <Key>
+            <PropertyRef Name="at_Id" />
+          </Key>
+          <Property Name="at_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="u_id" Type="int" />
+          <Property Name="m_id" Type="int" />
+          <Property Name="Remarks" Type="varchar" MaxLength="50" />
+          <Property Name="R_Time" Type="varchar" MaxLength="50" />
+          <Property Name="Present" Type="int" />
+        </EntityType>
+        <EntityType Name="Meeting">
+          <Key>
+            <PropertyRef Name="m_Id" />
+          </Key>
+          <Property Name="m_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mTitle" Type="varchar" MaxLength="50" />
+          <Property Name="cId" Type="int" />
+          <Property Name="qId" Type="int" />
+          <Property Name="vId" Type="int" />
+          <Property Name="aId" Type="int" />
+          <Property Name="Start_Time" Type="int" />
+          <Property Name="Duration" Type="int" />
+        </EntityType>
+        <EntityType Name="Organisation">
+          <Key>
+            <PropertyRef Name="o_Id" />
+          </Key>
+          <Property Name="o_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="oName" Type="varchar" MaxLength="50" />
+          <Property Name="oAddress" Type="varchar" MaxLength="50" />
+          <Property Name="oPhone" Type="varchar" MaxLength="50" />
+          <Property Name="oEmail" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Quaram">
+          <Key>
+            <PropertyRef Name="q_Id" />
+          </Key>
+          <Property Name="q_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="qType" Type="varchar" MaxLength="50" />
+          <Property Name="max_Att" Type="int" />
+          <Property Name="min_Att" Type="int" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="r_Id" />
+          </Key>
+          <Property Name="r_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Role_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="urActivity">
+          <Key>
+            <PropertyRef Name="a_Id" />
+          </Key>
+          <Property Name="a_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="U_Id" Type="int" />
+          <Property Name="c_Id" Type="int" />
+          <Property Name="a_Title" Type="varchar" MaxLength="50" />
+          <Property Name="s_Time" Type="int" />
+          <Property Name="Duration" Type="int" />
+          <Property Name="Presence" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="u_Id" />
+          </Key>
+          <Property Name="u_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uName" Type="varchar" MaxLength="50" />
+          <Property Name="Pass" Type="varchar" MaxLength="50" />
+          <Property Name="Job_Title" Type="varchar" MaxLength="50" />
+          <Property Name="Age" Type="varchar" MaxLength="50" />
+          <Property Name="Gender" Type="varchar" MaxLength="50" />
+          <Property Name="Pay_Grade" Type="varchar" MaxLength="50" />
+          <Property Name="Role_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="Venu">
+          <Key>
+            <PropertyRef Name="v_Id" />
+          </Key>
+          <Property Name="v_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vName" Type="varchar" MaxLength="50" />
+          <Property Name="vLocation" Type="varchar" MaxLength="50" />
+          <Property Name="vAddress" Type="varchar" MaxLength="50" />
+          <Property Name="Capacity" Type="int" />
+        </EntityType>
+        <EntityContainer Name="DB_MS_ADIModelStoreContainer">
+          <EntitySet Name="Agenda" EntityType="Self.Agenda" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Calender" EntityType="Self.Calender" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MeetAttendies" EntityType="Self.MeetAttendies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Meeting" EntityType="Self.Meeting" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Organisation" EntityType="Self.Organisation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Quaram" EntityType="Self.Quaram" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="urActivity" EntityType="Self.urActivity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Venu" EntityType="Self.Venu" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_MS_ADIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Agendum">
+          <Key>
+            <PropertyRef Name="ag_Id" />
+          </Key>
+          <Property Name="ag_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Calender">
+          <Key>
+            <PropertyRef Name="c_Id" />
+          </Key>
+          <Property Name="c_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cDate" Type="DateTime" Precision="0" />
+          <Property Name="wDay" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="wNo" Type="Int32" />
+          <Property Name="wHour" Type="Int32" />
+          <Property Name="isHoliday" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="MeetAttendy">
+          <Key>
+            <PropertyRef Name="at_Id" />
+          </Key>
+          <Property Name="at_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="u_id" Type="Int32" />
+          <Property Name="m_id" Type="Int32" />
+          <Property Name="Remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="R_Time" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Present" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Meeting">
+          <Key>
+            <PropertyRef Name="m_Id" />
+          </Key>
+          <Property Name="m_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cId" Type="Int32" />
+          <Property Name="qId" Type="Int32" />
+          <Property Name="vId" Type="Int32" />
+          <Property Name="aId" Type="Int32" />
+          <Property Name="Start_Time" Type="Int32" />
+          <Property Name="Duration" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Organisation">
+          <Key>
+            <PropertyRef Name="o_Id" />
+          </Key>
+          <Property Name="o_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="oName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="oAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="oPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="oEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Quaram">
+          <Key>
+            <PropertyRef Name="q_Id" />
+          </Key>
+          <Property Name="q_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="qType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="max_Att" Type="Int32" />
+          <Property Name="min_Att" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="r_Id" />
+          </Key>
+          <Property Name="r_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Role_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="urActivity">
+          <Key>
+            <PropertyRef Name="a_Id" />
+          </Key>
+          <Property Name="a_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="U_Id" Type="Int32" />
+          <Property Name="c_Id" Type="Int32" />
+          <Property Name="a_Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="s_Time" Type="Int32" />
+          <Property Name="Duration" Type="Int32" />
+          <Property Name="Presence" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="u_Id" />
+          </Key>
+          <Property Name="u_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Job_Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Age" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Pay_Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Role_Id" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Venu">
+          <Key>
+            <PropertyRef Name="v_Id" />
+          </Key>
+          <Property Name="v_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="vLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="vAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Capacity" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="DB_MS_ADIEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Agenda" EntityType="Self.Agendum" />
+          <EntitySet Name="Calenders" EntityType="Self.Calender" />
+          <EntitySet Name="MeetAttendies" EntityType="Self.MeetAttendy" />
+          <EntitySet Name="Meetings" EntityType="Self.Meeting" />
+          <EntitySet Name="Organisations" EntityType="Self.Organisation" />
+          <EntitySet Name="Quarams" EntityType="Self.Quaram" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="urActivities" EntityType="Self.urActivity" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="Venus" EntityType="Self.Venu" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_MS_ADIModelStoreContainer" CdmEntityContainer="DB_MS_ADIEntities">
+          <EntitySetMapping Name="Agenda">
+            <EntityTypeMapping TypeName="DB_MS_ADIModel.Agendum">
+              <MappingFragment StoreEntitySet="Agenda">
+                <ScalarProperty Name="ag_Id" ColumnName="ag_Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Calenders">
+            <EntityTypeMapping TypeName="DB_MS_ADIModel.Calender">
+              <MappingFragment StoreEntitySet="Calender">
+                <ScalarProperty Name="c_Id" ColumnName="c_Id" />
+                <ScalarProperty Name="cDate" ColumnName="cDate" />
+                <ScalarProperty Name="wDay" ColumnName="wDay" />
+                <ScalarProperty Name="wNo" ColumnName="wNo" />
+                <ScalarProperty Name="wHour" ColumnName="wHour" />
+                <ScalarProperty Name="isHoliday" ColumnName="isHoliday" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MeetAttendies">
+            <EntityTypeMapping TypeName="DB_MS_ADIModel.MeetAttendy">
+              <MappingFragment StoreEntitySet="MeetAttendies">
+                <ScalarProperty Name="at_Id" ColumnName="at_Id" />
+                <ScalarProperty Name="u_id" ColumnName="u_id" />
+                <ScalarProperty Name="m_id" ColumnName="m_id" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="R_Time" ColumnName="R_Time" />
+                <ScalarProperty Name="Present" ColumnName="Present" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Meetings">
+            <EntityTypeMapping TypeName="DB_MS_ADIModel.Meeting">
+              <MappingFragment StoreEntitySet="Meeting">
+                <ScalarProperty Name="m_Id" ColumnName="m_Id" />
+                <ScalarProperty Name="mTitle" ColumnName="mTitle" />
+                <ScalarProperty Name="cId" ColumnName="cId" />
+                <ScalarProperty Name="qId" ColumnName="qId" />
+                <ScalarProperty Name="vId" ColumnName="vId" />
+                <ScalarProperty Name="aId" ColumnName="aId" />
+                <ScalarProperty Name="Start_Time" ColumnName="Start_Time" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Organisations">
+            <EntityTypeMapping TypeName="DB_MS_ADIModel.Organisation">
+              <MappingFragment StoreEntitySet="Organisation">
+                <ScalarProperty Name="o_Id" ColumnName="o_Id" />
+                <ScalarProperty Name="oName" ColumnName="oName" />
+                <ScalarProperty Name="oAddress" ColumnName="oAddress" />
+                <ScalarProperty Name="oPhone" ColumnName="oPhone" />
+                <ScalarProperty Name="oEmail" ColumnName="oEmail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Quarams">
+            <EntityTypeMapping TypeName="DB_MS_ADIModel.Quaram">
+              <MappingFragment StoreEntitySet="Quaram">
+                <ScalarProperty Name="q_Id" ColumnName="q_Id" />
+                <ScalarProperty Name="qType" ColumnName="qType" />
+                <ScalarProperty Name="max_Att" ColumnName="max_Att" />
+                <ScalarProperty Name="min_Att" ColumnName="min_Att" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="DB_MS_ADIModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="r_Id" ColumnName="r_Id" />
+                <ScalarProperty Name="Role_Name" ColumnName="Role_Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="urActivities">
+            <EntityTypeMapping TypeName="DB_MS_ADIModel.urActivity">
+              <MappingFragment StoreEntitySet="urActivity">
+                <ScalarProperty Name="a_Id" ColumnName="a_Id" />
+                <ScalarProperty Name="U_Id" ColumnName="U_Id" />
+                <ScalarProperty Name="c_Id" ColumnName="c_Id" />
+                <ScalarProperty Name="a_Title" ColumnName="a_Title" />
+                <ScalarProperty Name="s_Time" ColumnName="s_Time" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="Presence" ColumnName="Presence" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="DB_MS_ADIModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="u_Id" ColumnName="u_Id" />
+                <ScalarProperty Name="uName" ColumnName="uName" />
+                <ScalarProperty Name="Pass" ColumnName="Pass" />
+                <ScalarProperty Name="Job_Title" ColumnName="Job_Title" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Pay_Grade" ColumnName="Pay_Grade" />
+                <ScalarProperty Name="Role_Id" ColumnName="Role_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Venus">
+            <EntityTypeMapping TypeName="DB_MS_ADIModel.Venu">
+              <MappingFragment StoreEntitySet="Venu">
+                <ScalarProperty Name="v_Id" ColumnName="v_Id" />
+                <ScalarProperty Name="vName" ColumnName="vName" />
+                <ScalarProperty Name="vLocation" ColumnName="vLocation" />
+                <ScalarProperty Name="vAddress" ColumnName="vAddress" />
+                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
